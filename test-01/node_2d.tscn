@@ -7,3 +7,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "hello
 "
+
+[node name="Label2" type="Label" parent="." unique_id=1343941560]
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 43.0
+text = "wold"
