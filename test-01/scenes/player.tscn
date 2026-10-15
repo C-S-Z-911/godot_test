@@ -9,3 +9,8 @@ script = ExtResource("1_g2els")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=454385435]
 texture_filter = 1
 texture = ExtResource("1_3vyb7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=495448558]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
