@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cwkp7e48nnbpq" path="res://graphics/map.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://kplc0ribbtu2" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://tpgps7ms35l5" path="res://scenes/obstacle/tree.tscn" id="3_lnu2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e58uu"]
+size = Vector2(10, 1000)
 
 [node name="Game" type="Node2D" unique_id=1655798817]
 
@@ -17,3 +21,27 @@ position = Vector2(384, 0)
 texture = ExtResource("1_uwrxv")
 
 [node name="player" parent="." unique_id=1967865214 instance=ExtResource("2_yqjtg")]
+
+[node name="Tree" parent="." unique_id=311098412 instance=ExtResource("3_lnu2h")]
+position = Vector2(58, 15)
+script = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=712306967]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=662305655]
+position = Vector2(-300, 0)
+shape = SubResource("RectangleShape2D_e58uu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1448760664]
+position = Vector2(300, 0)
+shape = SubResource("RectangleShape2D_e58uu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1309455611]
+position = Vector2(0, -250)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_e58uu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=2057093640]
+position = Vector2(0, 250)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_e58uu")

@@ -1,15 +1,12 @@
-extends Node2D
+extends CharacterBody2D
 
 var direction: Vector2
-var speed: int = 200
+var speed: int = 100
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	direction = Input.get_vector("left","right","up","down")
-
-		
-
-	position += direction * speed * delta
-
+	velocity = direction * speed 
+	move_and_slide()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("comfirm"):
-		print("123");
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("confirm"):
+		print("123")
 	
