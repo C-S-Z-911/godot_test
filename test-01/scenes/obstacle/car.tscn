@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bjuw2ex5r306k"]
+
+[ext_resource type="Script" uid="uid://belubcm4sretx" path="res://scenes/obstacle/car.gd" id="1_bc83l"]
+[ext_resource type="Texture2D" uid="uid://dgx8mihbgr8vg" path="res://graphics/cars/red.png" id="1_x0u8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvnld"]
+size = Vector2(22, 11)
+
+[node name="Car" type="Area2D" unique_id=183649402]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_bc83l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1798124858]
+texture = ExtResource("1_x0u8p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1885727983]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_yvnld")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1305457041]
+
+[node name="Timer" type="Timer" parent="." unique_id=1150949420]
+wait_time = 5.0
+autostart = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

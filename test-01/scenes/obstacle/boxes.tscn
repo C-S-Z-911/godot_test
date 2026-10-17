@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://bc8qwb7ysm5r3"]
 
+[ext_resource type="Script" uid="uid://dcf3redcry31q" path="res://scenes/obstacle/boxes.gd" id="1_ep5ep"]
 [ext_resource type="Texture2D" uid="uid://b6mjirn33bh0w" path="res://graphics/objects/box1.png" id="1_hl4tw"]
 
-[node name="Boxes" type="Node2D" unique_id=1438398430]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e58uu"]
+size = Vector2(12, 8)
+
+[node name="Boxes" type="StaticBody2D" unique_id=749984276]
+collision_mask = 0
+script = ExtResource("1_ep5ep")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=381702028]
 texture = ExtResource("1_hl4tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1399484180]
+shape = SubResource("RectangleShape2D_e58uu")

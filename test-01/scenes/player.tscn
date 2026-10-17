@@ -123,9 +123,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e58uu"]
-size = Vector2(10, 12)
+size = Vector2(10, 6)
 
 [node name="player" type="CharacterBody2D" unique_id=1256054035]
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776217853]
@@ -135,9 +137,9 @@ autoplay = "down"
 frame_progress = 0.055178255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2043430350]
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_e58uu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=495448558]
 zoom = Vector2(5, 5)
-position_smoothing_enabled = true
 position_smoothing_speed = 20.0
