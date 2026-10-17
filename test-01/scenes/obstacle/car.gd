@@ -9,6 +9,7 @@ func _ready() -> void:
 	if position.x < 0:
 		direction = Vector2.RIGHT
 		$Sprite2D.flip_h = true
+	$Sprite2D.texture = color.pick_random()
 
 
 func _physics_process(delta: float) -> void:

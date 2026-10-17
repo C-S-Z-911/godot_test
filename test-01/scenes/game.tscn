@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cm1lf0hkg4ntt" path="res://graphics/objects/sign.png" id="8_dinhu"]
 [ext_resource type="Texture2D" uid="uid://b6jj8too4xi6p" path="res://graphics/objects/barrier.png" id="9_kvuet"]
 [ext_resource type="Texture2D" uid="uid://bsojhsb55uq6y" path="res://graphics/objects/traffic.png" id="10_trtic"]
+[ext_resource type="FontFile" uid="uid://blbni5mmss3dl" path="res://fonts/Better VCR 9.0.1.ttf" id="11_kvpfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e58uu"]
 size = Vector2(10, 1000)
@@ -36,8 +37,16 @@ size = Vector2(3, 5.25)
 size = Vector2(3, 4)
 
 [node name="Game" type="Node2D" unique_id=1655798817]
-position = Vector2(22, 20)
 script = ExtResource("1_lbhrr")
+
+[node name="Timer" type="Node" parent="." unique_id=843936018]
+
+[node name="CarTimer" type="Timer" parent="Timer" unique_id=1709233171]
+wait_time = 0.1
+autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="Timer" unique_id=1254233617]
+autostart = true
 
 [node name="BG" type="Node2D" parent="." unique_id=2126000861]
 metadata/_edit_lock_ = true
@@ -84,17 +93,12 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_e58uu")
 
 [node name="FinishArea2D" type="Area2D" parent="Borders" unique_id=575382618]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/FinishArea2D" unique_id=185580893]
 visibility_layer = 2
 position = Vector2(0, -188.5)
 shape = SubResource("RectangleShape2D_yvnld")
-
-[node name="Timer" type="Node" parent="." unique_id=843936018]
-
-[node name="CarTimer" type="Timer" parent="Timer" unique_id=1709233171]
-wait_time = 0.2
-autostart = true
 
 [node name="CarStartPositions" type="Node2D" parent="." unique_id=1442618846]
 metadata/_edit_lock_ = true
@@ -155,6 +159,7 @@ position = Vector2(-7, 63)
 position = Vector2(-57, 44)
 
 [node name="Stuff" type="Node2D" parent="Objects" unique_id=1879105245]
+y_sort_enabled = true
 
 [node name="House3" type="Sprite2D" parent="Objects/Stuff" unique_id=1640356076]
 position = Vector2(92, 40)
@@ -202,5 +207,23 @@ shape = SubResource("RectangleShape2D_kvuet")
 position = Vector2(246, 71)
 shape = SubResource("RectangleShape2D_trtic")
 
-[connection signal="body_entered" from="Borders/FinishArea2D" to="." method="_on_finish_area_2d_body_entered"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=54823422]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1477808647]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -20.5
+offset_right = 20.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_kvpfn")
+theme_override_font_sizes/font_size = 32
+text = "得分: 0"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="Timer/CarTimer" to="." method="_on_car_timer_timeout"]
+[connection signal="timeout" from="Timer/ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="body_entered" from="Borders/FinishArea2D" to="." method="_on_finish_area_2d_body_entered"]
