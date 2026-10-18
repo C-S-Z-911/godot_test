@@ -24,7 +24,10 @@ func _on_car_timer_timeout() -> void:
 
 
 func go_to_title(_body: Node2D):
-	call_deferred("change_scene")
+	if debug:
+		print("切换场景")
+	else:
+		call_deferred("change_scene")
 
 
 func _on_score_timer_timeout() -> void:
@@ -34,10 +37,9 @@ func _on_score_timer_timeout() -> void:
 
 func _on_finish_area_2d_body_entered(_body: Node2D) -> void:
 	call_deferred("change_scene")
+	if Global.score > scorel || Global.score == -1:
+		Global.score = scorel
 
 
 func change_scene():
-	if debug:
-		print("切换场景")
-	else: 
-		get_tree().change_scene_to_file("res://scenes/title.tscn")
+	get_tree().change_scene_to_file("res://scenes/title.tscn")
