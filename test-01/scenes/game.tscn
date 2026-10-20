@@ -42,7 +42,7 @@ script = ExtResource("1_lbhrr")
 [node name="Timer" type="Node" parent="." unique_id=843936018]
 
 [node name="CarTimer" type="Timer" parent="Timer" unique_id=1709233171]
-wait_time = 0.1
+wait_time = 0.2
 autostart = true
 
 [node name="ScoreTimer" type="Timer" parent="Timer" unique_id=1254233617]
@@ -101,35 +101,35 @@ position = Vector2(0, -188.5)
 shape = SubResource("RectangleShape2D_yvnld")
 
 [node name="CarStartPositions" type="Node2D" parent="." unique_id=1442618846]
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="CarStartPositions" unique_id=742366565]
-position = Vector2(-309, 163)
+position = Vector2(-521, 159)
 
 [node name="Marker2D2" type="Marker2D" parent="CarStartPositions" unique_id=1136709602]
-position = Vector2(-309, 141)
+position = Vector2(-521, 137)
 
 [node name="Marker2D3" type="Marker2D" parent="CarStartPositions" unique_id=560919318]
-position = Vector2(310, 115)
+position = Vector2(517, 116)
 
 [node name="Marker2D4" type="Marker2D" parent="CarStartPositions" unique_id=1726579441]
-position = Vector2(310, 92)
+position = Vector2(517, 93)
 
 [node name="Marker2D5" type="Marker2D" parent="CarStartPositions" unique_id=783962682]
-position = Vector2(-312, 6)
+position = Vector2(-524, 2)
 
 [node name="Marker2D6" type="Marker2D" parent="CarStartPositions" unique_id=1139732396]
-position = Vector2(-312, -23)
+position = Vector2(-524, -27)
 
 [node name="Marker2D7" type="Marker2D" parent="CarStartPositions" unique_id=208229860]
-position = Vector2(-311, -48)
+position = Vector2(-523, -52)
 
 [node name="Marker2D8" type="Marker2D" parent="CarStartPositions" unique_id=198565407]
-position = Vector2(319, -94)
+position = Vector2(526, -93)
 
 [node name="Marker2D9" type="Marker2D" parent="CarStartPositions" unique_id=1639319430]
-position = Vector2(320, -118)
+position = Vector2(527, -117)
 
 [node name="Objects" type="Node2D" parent="." unique_id=1262214589]
 y_sort_enabled = true
