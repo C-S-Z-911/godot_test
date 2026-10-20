@@ -9,6 +9,8 @@ func _ready() -> void:
 	if position.x < 0:
 		direction = Vector2.RIGHT
 		$Sprite2D.flip_h = true
+	else:
+		direction = Vector2.LEFT
 	$Sprite2D.texture = color.pick_random()
 
 
